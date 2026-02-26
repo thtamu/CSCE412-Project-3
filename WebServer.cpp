@@ -6,24 +6,23 @@
 #include <thread>
 #include <chrono>
 
-WebServer::WebServer(){
-    busy = false;
-}
-bool WebServer::isBusy(){
-    return busy;
-}
+WebServer::WebServer(std::string serverName) : serverName(serverName), busy(false) {}
+
 bool WebServer::isFree(){
+    std::lock_guard<std::mutex> lock(serverMutex);
     return !busy;
 }
+
 void WebServer::assign(Request newRequest){
-    busy = true;
-    request = newRequest;
-}
-void WebServer::process(){
-    std::cout << "Start" <<std::endl;
-    int time = this->request->time;
-    std::cout << "Waiting "<<(time) <<std::endl;
-    std::this_thread::sleep_for(std::chrono::seconds(time)); 
-    busy = false;
-    std::cout <<"done"<<std::endl;
+    std::lock_guard<std::mutex> lock(serverMutex);
+    if(!busy) {
+        busy = true;
+        std::thread([this, newRequest](){
+            int time = newRequest.time;
+            std::cout << this->serverName << " Waiting "<<(time) <<std::endl;
+            std::this_thread::sleep_for(std::chrono::seconds(time)); 
+            std::cout << this->serverName << " completed task" <<std::endl;
+            busy = false;
+        }).detach();
+    }
 }

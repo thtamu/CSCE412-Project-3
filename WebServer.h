@@ -4,15 +4,19 @@
 #include "Ip.h"
 #include "Request.h"
 #include <optional>
+#include <mutex>
+#include <atomic>
+
 class WebServer {
     private:
-        std::optional<Request> request;
-        bool busy;
+        std::atomic<bool> busy;
+        std::mutex serverMutex;
+        std::string serverName;
     public:
-        WebServer();
-        bool isBusy();
+        WebServer(std::string serverName);
+        WebServer(const WebServer&) = delete;
+        WebServer& operator=(const WebServer&) = delete;
         bool isFree();
         void assign(Request newRequest);
-        void process();
 };
 #endif 
