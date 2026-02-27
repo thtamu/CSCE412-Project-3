@@ -4,6 +4,7 @@
 #include <thread>
 #include <memory>
 #include "helpers.h"
+#include "constants.h"
 
 RequestQueue::RequestQueue() {
     for(int i = 0; i < 250; i++){
@@ -18,7 +19,7 @@ void RequestQueue::generateRequest(){
         requestQueue.push(request);
         cv.notify_all();
         lock.unlock();
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        std::this_thread::sleep_for(std::chrono::milliseconds(generateRandom(constants::requestIntervalLow, constants::requestIntervalHigh)));
     }
 }
 

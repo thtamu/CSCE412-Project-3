@@ -4,6 +4,7 @@
 #include "LoadBalancer.h"
 #include <thread>
 #include <chrono>
+#include "constants.h"
 
 LoadBalancer::LoadBalancer(int n){
     this->n = n;
