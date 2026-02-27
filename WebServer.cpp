@@ -19,10 +19,13 @@ void WebServer::assign(Request newRequest){
         busy = true;
         std::thread([this, newRequest](){
             int time = newRequest.time;
-            std::cout << this->serverName << " Waiting "<<(time) <<std::endl;
             std::this_thread::sleep_for(std::chrono::seconds(time)); 
-            std::cout << this->serverName << " completed task" <<std::endl;
+            std::cout <<"\033[34m" << this->serverName << " completed task after " << time <<" seconds of execution" <<std::endl;
             busy = false;
         }).detach();
     }
+}
+
+std::string WebServer::getName(){
+    return serverName;
 }

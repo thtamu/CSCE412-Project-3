@@ -18,5 +18,6 @@ class WebServer {
         WebServer& operator=(const WebServer&) = delete;
         bool isFree();
         void assign(Request newRequest);
+        std::string getName();
 };
 #endif 

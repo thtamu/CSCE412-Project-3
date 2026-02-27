@@ -6,7 +6,7 @@
 Request::Request(char job){
     this->ip_in = Ip();
     this->ip_out = Ip();
-    this->time = generateRandom(1, 5);
+    this->time = generateRandom(10, 20);
     this->job = job;
 }
 
