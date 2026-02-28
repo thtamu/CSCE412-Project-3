@@ -11,13 +11,15 @@ namespace constants {
     inline constexpr long timeLowCycles = 3e10;
     inline constexpr long timeHighCycles = 6e10;
     inline constexpr const char* logFile = "logfile.txt";
+    inline constexpr long runCycles = 20e10;
     //Don't edit these
     inline constexpr double conversion = 1/(ghz*1e9); 
     inline constexpr int requestIntervalLow = (int)(requestIntervalLowCycles*conversion);
     inline constexpr int requestIntervalHigh = (int)(requestIntervalHighCycles*conversion);
     inline constexpr int timeLow = (int)(timeLowCycles*conversion);
     inline constexpr int timeHigh = (int)(timeHighCycles*conversion);
-    inline constexpr long checkWaitTime = (int)(startingServers*conversion);
+    inline constexpr int checkWaitTime = (int)(startingServers*conversion);
+    inline constexpr int runDuration = (int)(runCycles*conversion);
 }
 
 #endif

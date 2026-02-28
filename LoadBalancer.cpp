@@ -6,6 +6,7 @@
 #include <chrono>
 #include "constants.h"
 #include "helpers.h"
+#include "Stopper.h"
 LoadBalancer::LoadBalancer(int n){
     this->n = n;
     for(int i = 0; i < n; i++){
@@ -18,7 +19,9 @@ LoadBalancer::LoadBalancer(int n){
 
 void LoadBalancer::run(std::string logfile){
     int serversAdded = 0;
-    while(true){
+    //start Stopper
+    Stopper::start();
+    while(!Stopper::stop()){
         // Goal: Keep queue size between 50 and 80 requests times the number of servers you have. 
         if(liveQueue.size()<servers.size()*50 && servers.size()>1){
             std::cout << "\033[31m"<<getCurrentTimestamp()<<": Remove server " <<servers.back()->getName() <<". Current server count: "<<servers.size()-1<< std::endl;
@@ -45,6 +48,10 @@ void LoadBalancer::run(std::string logfile){
         }
         
     }
+    std::cout << "\033[31m"<<getCurrentTimestamp()<<": Stopping LoadBalancer"<< std::endl;
+    std::cout << "Final Statistics: "<<std::endl;
+    std::cout << "Final server count: " << servers.size() << std::endl;
+    std::cout << "Final queue size: " << liveQueue.size() << std::endl;
 }
 
 

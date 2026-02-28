@@ -5,6 +5,7 @@
 #include <memory>
 #include "helpers.h"
 #include "constants.h"
+#include "Stopper.h"
 
 RequestQueue::RequestQueue() {
     for(int i = 0; i < 250; i++){
@@ -13,7 +14,7 @@ RequestQueue::RequestQueue() {
     }
 }
 void RequestQueue::generateRequest(){
-    while(true){
+    while(!Stopper::stop()){
         std::unique_lock<std::mutex> lock(queueMutex);
         Request request('s');
         requestQueue.push(request);
