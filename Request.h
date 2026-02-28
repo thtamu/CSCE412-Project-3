@@ -6,7 +6,7 @@ class Request {
     public:
         Ip ip_in;
         Ip ip_out;
-        int time;
+        long time;
         char job;
         Request(char job);
         std::string toString() const; 

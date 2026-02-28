@@ -10,10 +10,10 @@ Ip::Ip(int octet1, int octet2, int octet3, int octet4){
 }
 
 Ip::Ip(){
-    this->octet1 = generateRandom(0, 255);
-    this->octet2 = generateRandom(0, 255);
-    this->octet3 = generateRandom(0, 255);
-    this->octet4 = generateRandom(0, 255);
+    this->octet1 = generateOctet();
+    this->octet2 = generateOctet();
+    this->octet3 = generateOctet();
+    this->octet4 = generateOctet();
 }
 
 bool Ip::operator==(const Ip& other) const {

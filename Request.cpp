@@ -7,7 +7,7 @@
 Request::Request(char job){
     this->ip_in = Ip();
     this->ip_out = Ip();
-    this->time = generateRandom(constants::timeLow, constants::timeHigh);
+    this->time = generateRandom(constants::timeLowCycles, constants::timeHighCycles);
     this->job = job;
 }
 

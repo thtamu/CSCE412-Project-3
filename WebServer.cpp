@@ -5,7 +5,7 @@
 #include "WebServer.h"
 #include <thread>
 #include <chrono>
-
+#include "constants.h"
 WebServer::WebServer(std::string serverName) : serverName(serverName), busy(false) {}
 
 bool WebServer::isFree(){
@@ -18,9 +18,10 @@ void WebServer::assign(Request newRequest){
     if(!busy) {
         busy = true;
         std::thread([this, newRequest](){
-            int time = newRequest.time;
-            std::this_thread::sleep_for(std::chrono::seconds(time)); 
-            std::cout <<"\033[34m" << this->serverName << " completed task after " << time <<" seconds of execution" <<std::endl;
+            long time = newRequest.time;
+            double timeInSeconds = time*constants::conversion;
+            std::this_thread::sleep_for(std::chrono::duration<double>(timeInSeconds));
+            std::cout <<"\033[34m" << getCurrentTimestamp()<<": "<<this->serverName << " completed task after " << time <<" cycles("<<timeInSeconds<<"s) of execution" <<std::endl;
             busy = false;
         }).detach();
     }
