@@ -30,17 +30,21 @@ void WebServer::assign(Request newRequest){
                 long time = newRequest.time;
                 double timeInSeconds = time*constants::conversion;
                 std::this_thread::sleep_for(std::chrono::duration<double>(timeInSeconds));
-                if(isatty(fileno(stdout))){
-                    std::cout<<"\033[34m";
-                }
                 std::string job = newRequest.job=='s' ? "streaming" : "processing";
-                std::cout <<getCurrentTimestamp()<<": "<<this->serverName << " completed " << job << " task after " << time <<" cycles("<<timeInSeconds<<"s) of execution" <<std::endl;
+                if(isatty(fileno(stdout))){
+                    std::cout<<"\033[34m" <<getCurrentTimestamp()<<": "<<this->serverName << " completed " << job << " task after " << time <<" cycles("<<timeInSeconds<<"s) of execution" <<std::endl;
+                }
+                else{
+                    std::cout <<getCurrentTimestamp()<<": "<<this->serverName << " completed " << job << " task after " << time <<" cycles("<<timeInSeconds<<"s) of execution" <<std::endl;
+                }
             }
             else{
                 if(isatty(fileno(stdout))){
-                    std::cout<<"\033[34m";
+                    std::cout<<"\033[34m" << getCurrentTimestamp()<<": "<<this->serverName << " rejected the request since it was blocked by the firewall" <<std::endl;
                 }
-                std::cout <<getCurrentTimestamp()<<": "<<this->serverName << " rejected the request since it was blocked by the firewall" <<std::endl;
+                else{
+                    std::cout <<getCurrentTimestamp()<<": "<<this->serverName << " rejected the request since it was blocked by the firewall" <<std::endl;
+                }
             }
             busy = false;
         }).detach();

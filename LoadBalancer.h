@@ -14,8 +14,11 @@ class LoadBalancer {
         std::vector<std::unique_ptr<WebServer>> servers;
         RequestQueue liveQueue;
         int n;
+        int loadBalancerIndex;
 
         LoadBalancer(int n);
+
+        LoadBalancer(int n, int loadBalancerIndex);
 
         void run();
 };
