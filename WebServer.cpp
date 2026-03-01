@@ -33,7 +33,8 @@ void WebServer::assign(Request newRequest){
                 if(isatty(fileno(stdout))){
                     std::cout<<"\033[34m";
                 }
-                std::cout <<getCurrentTimestamp()<<": "<<this->serverName << " completed task after " << time <<" cycles("<<timeInSeconds<<"s) of execution" <<std::endl;
+                std::string job = newRequest.job=='s' ? "streaming" : "processing";
+                std::cout <<getCurrentTimestamp()<<": "<<this->serverName << " completed " << job << " task after " << time <<" cycles("<<timeInSeconds<<"s) of execution" <<std::endl;
             }
             else{
                 if(isatty(fileno(stdout))){

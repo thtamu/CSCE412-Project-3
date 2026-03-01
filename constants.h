@@ -5,7 +5,6 @@
 namespace constants {
     //Edit these
     inline constexpr double ghz = 2.69;
-    inline constexpr long startingServers = 2;
     inline constexpr long requestIntervalLowCycles = 8e10;
     inline constexpr long requestIntervalHighCycles = 16e10;
     inline constexpr long timeLowCycles = 3e9;
@@ -25,7 +24,6 @@ namespace constants {
     inline constexpr int requestIntervalHigh = (int)(requestIntervalHighCycles*conversion);
     inline constexpr int timeLow = (int)(timeLowCycles*conversion);
     inline constexpr int timeHigh = (int)(timeHighCycles*conversion);
-    inline constexpr int checkWaitTime = (int)(startingServers*conversion);
     inline constexpr int runDuration = (int)(runCycles*conversion);
 }
 

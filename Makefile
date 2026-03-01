@@ -11,7 +11,7 @@ $(TARGET): testing.cpp $(SRC)
 	$(CXX) $(CXXFLAGS) testing.cpp $(SRC) -o $(TARGET)
 
 run: $(TARGET)
-	./$(TARGET) > $(OUTPUT) 2>&1
+	./$(TARGET) > $(OUTPUT) 
 
 clean:
 	rm -f $(TARGET) $(OUTPUT)

@@ -32,7 +32,8 @@ void LoadBalancer::run(){
             }
             std::cout << getCurrentTimestamp()<<": Remove server " <<servers.back()->getName() <<". Current server count: "<<servers.size()-1<< std::endl;
             servers.pop_back();
-            std::this_thread::sleep_for(std::chrono::seconds(constants::checkWaitTime));
+            int waitTime = (int)(n*constants::conversion);
+            std::this_thread::sleep_for(std::chrono::seconds(waitTime));
             continue;
         }
         else if(liveQueue.size()>servers.size()*80){
@@ -42,7 +43,8 @@ void LoadBalancer::run(){
             }
             std::cout << getCurrentTimestamp()<<": Add server " << serversAdded + n<<". Current server count: "<<servers.size()+1<< std::endl;
             servers.push_back(std::make_unique<WebServer>("Server "+std::to_string(serversAdded+n)));
-            std::this_thread::sleep_for(std::chrono::seconds(constants::checkWaitTime));
+            int waitTime = (int)(n*constants::conversion);
+            std::this_thread::sleep_for(std::chrono::seconds(waitTime));
             continue;
         }
 
