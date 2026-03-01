@@ -17,6 +17,6 @@ class LoadBalancer {
 
         LoadBalancer(int n);
 
-        void run(std::string logfile);
+        void run();
 };
 #endif 

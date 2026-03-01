@@ -7,6 +7,9 @@
 #include "constants.h"
 #include "helpers.h"
 #include "Stopper.h"
+#include "unistd.h"
+#include <cstdio>
+
 LoadBalancer::LoadBalancer(int n){
     this->n = n;
     for(int i = 0; i < n; i++){
@@ -17,21 +20,27 @@ LoadBalancer::LoadBalancer(int n){
 }
 
 
-void LoadBalancer::run(std::string logfile){
+void LoadBalancer::run(){
     int serversAdded = 0;
     //start Stopper
     Stopper::start();
     while(!Stopper::stop()){
         // Goal: Keep queue size between 50 and 80 requests times the number of servers you have. 
         if(liveQueue.size()<servers.size()*50 && servers.size()>1){
-            std::cout << "\033[31m"<<getCurrentTimestamp()<<": Remove server " <<servers.back()->getName() <<". Current server count: "<<servers.size()-1<< std::endl;
+            if(isatty(fileno(stdout))){
+                std::cout<<"\033[31m";
+            }
+            std::cout << getCurrentTimestamp()<<": Remove server " <<servers.back()->getName() <<". Current server count: "<<servers.size()-1<< std::endl;
             servers.pop_back();
             std::this_thread::sleep_for(std::chrono::seconds(constants::checkWaitTime));
             continue;
         }
         else if(liveQueue.size()>servers.size()*80){
             serversAdded +=1;
-            std::cout << "\033[32m"<<getCurrentTimestamp()<<": Add server " << serversAdded + n<<". Current server count: "<<servers.size()+1<< std::endl;
+            if(isatty(fileno(stdout))){
+                std::cout<<"\033[32m";
+            }
+            std::cout << getCurrentTimestamp()<<": Add server " << serversAdded + n<<". Current server count: "<<servers.size()+1<< std::endl;
             servers.push_back(std::make_unique<WebServer>("Server "+std::to_string(serversAdded+n)));
             std::this_thread::sleep_for(std::chrono::seconds(constants::checkWaitTime));
             continue;
@@ -40,7 +49,10 @@ void LoadBalancer::run(std::string logfile){
         if(liveQueue.size() > 0){
             for(int i = 0; i < servers.size(); i++){
                 if(servers[i]->isFree()){
-                    std::cout << "\033[33m"<<getCurrentTimestamp()<<": Server " << servers[i]->getName() << " is free, assigning request" << std::endl;
+                    if(isatty(fileno(stdout))){
+                        std::cout<<"\033[33m";
+                    }
+                    std::cout <<getCurrentTimestamp()<<": Server " << servers[i]->getName() << " is free, assigning request" << std::endl;
                     servers[i]->assign(liveQueue.getRequest());
                     break;
                 }
@@ -48,7 +60,10 @@ void LoadBalancer::run(std::string logfile){
         }
         
     }
-    std::cout << "\033[31m"<<getCurrentTimestamp()<<": Stopping LoadBalancer"<< std::endl;
+    if(isatty(fileno(stdout))){
+        std::cout<<"\033[31m";
+    }
+    std::cout << getCurrentTimestamp()<<": Stopping LoadBalancer"<< std::endl;
     std::cout << "Final Statistics: "<<std::endl;
     std::cout << "Final server count: " << servers.size() << std::endl;
     std::cout << "Final queue size: " << liveQueue.size() << std::endl;
