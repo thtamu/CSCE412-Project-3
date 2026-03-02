@@ -4,7 +4,9 @@
 #include "helpers.h"
 #include "constants.h"
 
-Request::Request(char job){
+Request::Request(){
+    int index = generateOctet()%2;
+    char job = index==0 ? 's' : 'p';
     this->ip_in = Ip();
     this->ip_out = Ip();
     this->time = generateRandom(constants::timeLowCycles, constants::timeHighCycles);

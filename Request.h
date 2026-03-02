@@ -8,7 +8,7 @@ class Request {
         Ip ip_out;
         long time;
         char job;
-        Request(char job);
+        Request();
         std::string toString() const; 
 };
 #endif 

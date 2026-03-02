@@ -10,18 +10,14 @@
 
 RequestQueue::RequestQueue() {
     for(int i = 0; i < 250; i++){
-        int index = generateOctet()%2;
-        char job = index==0 ? 's' : 'p';
-        Request request(job);
+        Request request;
         requestQueue.push(request);
     }
 }
 void RequestQueue::generateRequest(){
     while(!Stopper::stop()){
         std::unique_lock<std::mutex> lock(queueMutex);
-        int index = generateOctet()%2;
-        char job = index==0 ? 's' : 'p';
-        Request request(job);
+        Request request;
         requestQueue.push(request);
         cv.notify_all();
         lock.unlock();
