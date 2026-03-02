@@ -1,0 +1,28 @@
+\doxysection{Request\+Queue.\+h}
+\hypertarget{RequestQueue_8h_source}{}\label{RequestQueue_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ REQUESTQUEUE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ REQUESTQUEUE\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <condition\_variable>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Request.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRequestQueue}{RequestQueue}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::queue<Request>\ requestQueue;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ std::mutex\ queueMutex;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ std::condition\_variable\ cv;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ std::atomic<int>\ queueSize\{0\};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRequestQueue}{RequestQueue}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classRequestQueue_ac411817c314fd6801cad2777bda99554}{index}});}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRequestQueue_a0309bb61d10e196dab4a427f1700908a}{generateRequest}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRequest}{Request}}\ \mbox{\hyperlink{classRequestQueue_a35e8310eb4019cdf099420446039667f}{getRequest}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classRequestQueue_ac2a2a546ac5579e45ca11f433a8a804c}{size}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRequestQueue_addec7af30d521ffe810cc804551e0385}{push}}(\mbox{\hyperlink{classRequest}{Request}}\ request);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRequestQueue}{RequestQueue}}*\ \mbox{\hyperlink{classRequestQueue_a4174e4244cbf435d3ba6a2458276da40}{alternative}}=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classRequestQueue_ac411817c314fd6801cad2777bda99554}{index}};}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

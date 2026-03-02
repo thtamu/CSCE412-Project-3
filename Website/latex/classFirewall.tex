@@ -1,0 +1,143 @@
+\doxysection{Firewall Class Reference}
+\hypertarget{classFirewall}{}\label{classFirewall}\index{Firewall@{Firewall}}
+
+
+\doxylink{classFirewall}{Firewall} checking if requests are safe based on their IP.  
+
+
+
+
+{\ttfamily \#include $<$Firewall.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classFirewall_a38d55faef5995ac12c51143fc6f86939}\label{classFirewall_a38d55faef5995ac12c51143fc6f86939} 
+{\bfseries Firewall} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classFirewall}{Firewall} with no regulations. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFirewall_a59962007f114d2de2ba472c70ec71683}{Firewall}} (int \mbox{\hyperlink{classFirewall_a84d7edd445aac3b03c44d640f078f4bd}{octet1\+\_\+u}}, int \mbox{\hyperlink{classFirewall_a106d964ee7f94c6cbc0bb0116f17ab0c}{octet1\+\_\+l}}, int \mbox{\hyperlink{classFirewall_aa5152259cbe86cbfde369a8b6bd32f36}{octet2\+\_\+u}}, int \mbox{\hyperlink{classFirewall_af1ec63f94978c6dbe01e42dcec315b2d}{octet2\+\_\+l}}, int \mbox{\hyperlink{classFirewall_adbd1e416d49c0c0c6dd63038d3fde2b4}{octet3\+\_\+u}}, int \mbox{\hyperlink{classFirewall_a5d27ae844796fe32609fe5c5691d38d2}{octet3\+\_\+l}}, int \mbox{\hyperlink{classFirewall_a5d44a2c85dfa30396a97ce4a70b93754}{octet4\+\_\+u}}, int \mbox{\hyperlink{classFirewall_a74d6da71504723d5ba2867361fdc79cc}{octet4\+\_\+l}})
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classFirewall}{Firewall} with custom boundaries. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFirewall_a8af19e09060f8a8d604427634ca22cde}{update}} (int \mbox{\hyperlink{classFirewall_a84d7edd445aac3b03c44d640f078f4bd}{octet1\+\_\+u}}, int \mbox{\hyperlink{classFirewall_a106d964ee7f94c6cbc0bb0116f17ab0c}{octet1\+\_\+l}}, int \mbox{\hyperlink{classFirewall_aa5152259cbe86cbfde369a8b6bd32f36}{octet2\+\_\+u}}, int \mbox{\hyperlink{classFirewall_af1ec63f94978c6dbe01e42dcec315b2d}{octet2\+\_\+l}}, int \mbox{\hyperlink{classFirewall_adbd1e416d49c0c0c6dd63038d3fde2b4}{octet3\+\_\+u}}, int \mbox{\hyperlink{classFirewall_a5d27ae844796fe32609fe5c5691d38d2}{octet3\+\_\+l}}, int \mbox{\hyperlink{classFirewall_a5d44a2c85dfa30396a97ce4a70b93754}{octet4\+\_\+u}}, int \mbox{\hyperlink{classFirewall_a74d6da71504723d5ba2867361fdc79cc}{octet4\+\_\+l}})
+\begin{DoxyCompactList}\small\item\em Update the bounds for the \doxylink{classFirewall}{Firewall}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFirewall_ad31d98a80c0cd3c7fb239251996a4edb}{valid}} (\mbox{\hyperlink{classRequest}{Request}} request)
+\begin{DoxyCompactList}\small\item\em Check if the IP of a \doxylink{classRequest}{Request} passed the safety check. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classFirewall_a84d7edd445aac3b03c44d640f078f4bd}\label{classFirewall_a84d7edd445aac3b03c44d640f078f4bd} 
+int {\bfseries octet1\+\_\+u}
+\begin{DoxyCompactList}\small\item\em Upper bound for octet 1. \end{DoxyCompactList}\item 
+\Hypertarget{classFirewall_a106d964ee7f94c6cbc0bb0116f17ab0c}\label{classFirewall_a106d964ee7f94c6cbc0bb0116f17ab0c} 
+int {\bfseries octet1\+\_\+l}
+\begin{DoxyCompactList}\small\item\em Lower bound for octet 1. \end{DoxyCompactList}\item 
+\Hypertarget{classFirewall_aa5152259cbe86cbfde369a8b6bd32f36}\label{classFirewall_aa5152259cbe86cbfde369a8b6bd32f36} 
+int {\bfseries octet2\+\_\+u}
+\begin{DoxyCompactList}\small\item\em Upper bound for octet 2. \end{DoxyCompactList}\item 
+\Hypertarget{classFirewall_af1ec63f94978c6dbe01e42dcec315b2d}\label{classFirewall_af1ec63f94978c6dbe01e42dcec315b2d} 
+int {\bfseries octet2\+\_\+l}
+\begin{DoxyCompactList}\small\item\em Lower bound for octet 2. \end{DoxyCompactList}\item 
+\Hypertarget{classFirewall_adbd1e416d49c0c0c6dd63038d3fde2b4}\label{classFirewall_adbd1e416d49c0c0c6dd63038d3fde2b4} 
+int {\bfseries octet3\+\_\+u}
+\begin{DoxyCompactList}\small\item\em Upper bound for octet 3. \end{DoxyCompactList}\item 
+\Hypertarget{classFirewall_a5d27ae844796fe32609fe5c5691d38d2}\label{classFirewall_a5d27ae844796fe32609fe5c5691d38d2} 
+int {\bfseries octet3\+\_\+l}
+\begin{DoxyCompactList}\small\item\em Lower bound for octet 3. \end{DoxyCompactList}\item 
+\Hypertarget{classFirewall_a5d44a2c85dfa30396a97ce4a70b93754}\label{classFirewall_a5d44a2c85dfa30396a97ce4a70b93754} 
+int {\bfseries octet4\+\_\+u}
+\begin{DoxyCompactList}\small\item\em Upper bound for octet 4. \end{DoxyCompactList}\item 
+\Hypertarget{classFirewall_a74d6da71504723d5ba2867361fdc79cc}\label{classFirewall_a74d6da71504723d5ba2867361fdc79cc} 
+int {\bfseries octet4\+\_\+l}
+\begin{DoxyCompactList}\small\item\em Lower bound for octet 4. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classFirewall}{Firewall} checking if requests are safe based on their IP. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classFirewall_a59962007f114d2de2ba472c70ec71683}\label{classFirewall_a59962007f114d2de2ba472c70ec71683} 
+\index{Firewall@{Firewall}!Firewall@{Firewall}}
+\index{Firewall@{Firewall}!Firewall@{Firewall}}
+\doxysubsubsection{\texorpdfstring{Firewall()}{Firewall()}}
+{\footnotesize\ttfamily Firewall\+::\+Firewall (\begin{DoxyParamCaption}\item[{int}]{octet1\+\_\+u,  }\item[{int}]{octet1\+\_\+l,  }\item[{int}]{octet2\+\_\+u,  }\item[{int}]{octet2\+\_\+l,  }\item[{int}]{octet3\+\_\+u,  }\item[{int}]{octet3\+\_\+l,  }\item[{int}]{octet4\+\_\+u,  }\item[{int}]{octet4\+\_\+l }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classFirewall}{Firewall} with custom boundaries. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em octet1\+\_\+u} & upper bound for octet 1 \\
+\hline
+{\em octet1\+\_\+l} & lower bound for octet 1 \\
+\hline
+{\em octet2\+\_\+u} & upper bound for octet 2 \\
+\hline
+{\em octet2\+\_\+l} & lower bound for octet 2 \\
+\hline
+{\em octet3\+\_\+u} & upper bound for octet 3 \\
+\hline
+{\em octet3\+\_\+l} & lower bound for octet 3 \\
+\hline
+{\em octet4\+\_\+u} & upper bound for octet 4 \\
+\hline
+{\em octet4\+\_\+l} & lower bound for octet 4 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classFirewall_a8af19e09060f8a8d604427634ca22cde}\label{classFirewall_a8af19e09060f8a8d604427634ca22cde} 
+\index{Firewall@{Firewall}!update@{update}}
+\index{update@{update}!Firewall@{Firewall}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Firewall\+::update (\begin{DoxyParamCaption}\item[{int}]{octet1\+\_\+u,  }\item[{int}]{octet1\+\_\+l,  }\item[{int}]{octet2\+\_\+u,  }\item[{int}]{octet2\+\_\+l,  }\item[{int}]{octet3\+\_\+u,  }\item[{int}]{octet3\+\_\+l,  }\item[{int}]{octet4\+\_\+u,  }\item[{int}]{octet4\+\_\+l }\end{DoxyParamCaption})}
+
+
+
+Update the bounds for the \doxylink{classFirewall}{Firewall}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em octet1\+\_\+u} & upper bound for octet 1 \\
+\hline
+{\em octet1\+\_\+l} & lower bound for octet 1 \\
+\hline
+{\em octet2\+\_\+u} & upper bound for octet 2 \\
+\hline
+{\em octet2\+\_\+l} & lower bound for octet 2 \\
+\hline
+{\em octet3\+\_\+u} & upper bound for octet 3 \\
+\hline
+{\em octet3\+\_\+l} & lower bound for octet 3 \\
+\hline
+{\em octet4\+\_\+u} & upper bound for octet 4 \\
+\hline
+{\em octet4\+\_\+l} & lower bound for octet 4 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classFirewall_ad31d98a80c0cd3c7fb239251996a4edb}\label{classFirewall_ad31d98a80c0cd3c7fb239251996a4edb} 
+\index{Firewall@{Firewall}!valid@{valid}}
+\index{valid@{valid}!Firewall@{Firewall}}
+\doxysubsubsection{\texorpdfstring{valid()}{valid()}}
+{\footnotesize\ttfamily bool Firewall\+::valid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRequest}{Request}}}]{request }\end{DoxyParamCaption})}
+
+
+
+Check if the IP of a \doxylink{classRequest}{Request} passed the safety check. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & \doxylink{classRequest}{Request} to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if safe 
+
+false if unsafe 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Firewall.\+h\item 
+Firewall.\+cpp\end{DoxyCompactItemize}

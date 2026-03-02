@@ -1,0 +1,113 @@
+\doxysection{Web\+Server Class Reference}
+\hypertarget{classWebServer}{}\label{classWebServer}\index{WebServer@{WebServer}}
+
+
+\doxylink{classWebServer}{Web\+Server} class, managing requests assigned to it by the load balancer.  
+
+
+
+
+{\ttfamily \#include $<$Web\+Server.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWebServer_acbde49e00c9a553eb821861b02a01178}{Web\+Server}} (std\+::string server\+Name)
+\begin{DoxyCompactList}\small\item\em Construct a new Web Server. \end{DoxyCompactList}\item 
+\Hypertarget{classWebServer_afbf336e16c97e4ef71b89930af295b53}\label{classWebServer_afbf336e16c97e4ef71b89930af295b53} 
+{\bfseries Web\+Server} (const \mbox{\hyperlink{classWebServer}{Web\+Server}} \&)=delete
+\item 
+\Hypertarget{classWebServer_afd7c8e5967cdaf141d3f8b53e4340dd1}\label{classWebServer_afd7c8e5967cdaf141d3f8b53e4340dd1} 
+\mbox{\hyperlink{classWebServer}{Web\+Server}} \& {\bfseries operator=} (const \mbox{\hyperlink{classWebServer}{Web\+Server}} \&)=delete
+\item 
+bool \mbox{\hyperlink{classWebServer_ae70a2c20bf643c942408c3aeccf003c7}{is\+Free}} ()
+\begin{DoxyCompactList}\small\item\em Check if a server is free. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWebServer_a1b8029d6aec02a280c079f0170570a4b}{assign}} (\mbox{\hyperlink{classRequest}{Request}} new\+Request)
+\begin{DoxyCompactList}\small\item\em Assigns a new request to the server. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classWebServer_a033ad2a2671ba8cad01b45a8673eb53b}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Get the name of the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classWebServer_a7aac297c613cc00c6143d587d268c67a}\label{classWebServer_a7aac297c613cc00c6143d587d268c67a} 
+int {\bfseries rejected} = 0
+\begin{DoxyCompactList}\small\item\em Number of rejected requests. \end{DoxyCompactList}\item 
+\Hypertarget{classWebServer_ab22c0b0382c4af01333159cc1036e97c}\label{classWebServer_ab22c0b0382c4af01333159cc1036e97c} 
+int {\bfseries accepted} = 0
+\begin{DoxyCompactList}\small\item\em Number of accepted requests. \end{DoxyCompactList}\item 
+\Hypertarget{classWebServer_a9d845e16a5cc1cbed62277300403cbdc}\label{classWebServer_a9d845e16a5cc1cbed62277300403cbdc} 
+int {\bfseries completed} = 0
+\begin{DoxyCompactList}\small\item\em Number of completed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classWebServer}{Web\+Server} class, managing requests assigned to it by the load balancer. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classWebServer_acbde49e00c9a553eb821861b02a01178}\label{classWebServer_acbde49e00c9a553eb821861b02a01178} 
+\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{WebServer()}{WebServer()}}
+{\footnotesize\ttfamily Web\+Server\+::\+Web\+Server (\begin{DoxyParamCaption}\item[{std\+::string}]{server\+Name }\end{DoxyParamCaption})}
+
+
+
+Construct a new Web Server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server\+Name} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWebServer_a1b8029d6aec02a280c079f0170570a4b}\label{classWebServer_a1b8029d6aec02a280c079f0170570a4b} 
+\index{WebServer@{WebServer}!assign@{assign}}
+\index{assign@{assign}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{assign()}{assign()}}
+{\footnotesize\ttfamily void Web\+Server\+::assign (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRequest}{Request}}}]{new\+Request }\end{DoxyParamCaption})}
+
+
+
+Assigns a new request to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Request} & \doxylink{classRequest}{Request} to work on \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classWebServer_a033ad2a2671ba8cad01b45a8673eb53b}\label{classWebServer_a033ad2a2671ba8cad01b45a8673eb53b} 
+\index{WebServer@{WebServer}!getName@{getName}}
+\index{getName@{getName}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Web\+Server\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the name of the server. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+\Hypertarget{classWebServer_ae70a2c20bf643c942408c3aeccf003c7}\label{classWebServer_ae70a2c20bf643c942408c3aeccf003c7} 
+\index{WebServer@{WebServer}!isFree@{isFree}}
+\index{isFree@{isFree}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{isFree()}{isFree()}}
+{\footnotesize\ttfamily bool Web\+Server\+::is\+Free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if a server is free. 
+
+\begin{DoxyReturn}{Returns}
+true if it is free 
+
+false if it is busy 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Web\+Server.\+h\item 
+Web\+Server.\+cpp\end{DoxyCompactItemize}

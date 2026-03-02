@@ -1,0 +1,69 @@
+\doxysection{Request Class Reference}
+\hypertarget{classRequest}{}\label{classRequest}\index{Request@{Request}}
+
+
+\doxylink{classRequest}{Request} class, containing all information about the request.  
+
+
+
+
+{\ttfamily \#include $<$Request.\+h$>$}
+
+
+
+Collaboration diagram for Request\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=139pt]{classRequest__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classRequest_afaf8d8928de7ffff8a3767589489bd33}\label{classRequest_afaf8d8928de7ffff8a3767589489bd33} 
+{\bfseries Request} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classRequest}{Request}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classRequest_ad5a15b78abdb13c31c6533dc2a2fb622}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Return a formatted \doxylink{classRequest}{Request} representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classRequest_ad65dcf605dfdc21ee3fe4d7c8819c639}\label{classRequest_ad65dcf605dfdc21ee3fe4d7c8819c639} 
+\mbox{\hyperlink{classIp}{Ip}} {\bfseries ip\+\_\+in}
+\begin{DoxyCompactList}\small\item\em IP address going in. \end{DoxyCompactList}\item 
+\Hypertarget{classRequest_a51041a26e18ff12f1675ee65e6df0799}\label{classRequest_a51041a26e18ff12f1675ee65e6df0799} 
+\mbox{\hyperlink{classIp}{Ip}} {\bfseries ip\+\_\+out}
+\begin{DoxyCompactList}\small\item\em IP address going out. \end{DoxyCompactList}\item 
+\Hypertarget{classRequest_a4064ee6b34a02f99e4a349f55afbf0e0}\label{classRequest_a4064ee6b34a02f99e4a349f55afbf0e0} 
+long {\bfseries time}
+\begin{DoxyCompactList}\small\item\em Time for completion. \end{DoxyCompactList}\item 
+\Hypertarget{classRequest_a5fb60386936af51cece844bee23e89ee}\label{classRequest_a5fb60386936af51cece844bee23e89ee} 
+char {\bfseries job}
+\begin{DoxyCompactList}\small\item\em Type of job (P (processing), S (streaming)) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classRequest}{Request} class, containing all information about the request. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRequest_ad5a15b78abdb13c31c6533dc2a2fb622}\label{classRequest_ad5a15b78abdb13c31c6533dc2a2fb622} 
+\index{Request@{Request}!toString@{toString}}
+\index{toString@{toString}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Request\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return a formatted \doxylink{classRequest}{Request} representation. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Request.\+h\item 
+Request.\+cpp\end{DoxyCompactItemize}

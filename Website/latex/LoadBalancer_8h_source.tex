@@ -1,0 +1,30 @@
+\doxysection{Load\+Balancer.\+h}
+\hypertarget{LoadBalancer_8h_source}{}\label{LoadBalancer_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LOADBALANCER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LOADBALANCER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}WebServer.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Request.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}RequestQueue.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLoadBalancer}{LoadBalancer}}\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ std::vector<std::unique\_ptr<WebServer>>\ \mbox{\hyperlink{classLoadBalancer_ae1d5ff58a9f47cffe345418e85c8b502}{servers}};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRequestQueue}{RequestQueue}}\ \mbox{\hyperlink{classLoadBalancer_ac9bc3c986505c6fd38eac92de4b7a08d}{liveQueue}};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLoadBalancer_ac7805c3e364e8cfc47f85ff2855308c3}{n}};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLoadBalancer_a6a97d0f82ab5b5f5367d6d8b87f094ba}{loadBalancerIndex}};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLoadBalancer_a6be84665bacd3a0fa365f36991686080}{setAlternative}}(\mbox{\hyperlink{classRequestQueue}{RequestQueue}}\ \&alternative);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLoadBalancer}{LoadBalancer}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLoadBalancer_ac7805c3e364e8cfc47f85ff2855308c3}{n}});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLoadBalancer}{LoadBalancer}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLoadBalancer_ac7805c3e364e8cfc47f85ff2855308c3}{n}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLoadBalancer_a6a97d0f82ab5b5f5367d6d8b87f094ba}{loadBalancerIndex}});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLoadBalancer_a528909054cb20964cba1fb35ceb9003f}{run}}();}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

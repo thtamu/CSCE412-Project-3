@@ -1,0 +1,110 @@
+\doxysection{Load\+Balancer Class Reference}
+\hypertarget{classLoadBalancer}{}\label{classLoadBalancer}\index{LoadBalancer@{LoadBalancer}}
+
+
+\doxylink{classLoadBalancer}{Load\+Balancer} class managing the Queue and Servers.  
+
+
+
+
+{\ttfamily \#include $<$Load\+Balancer.\+h$>$}
+
+
+
+Collaboration diagram for Load\+Balancer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{classLoadBalancer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLoadBalancer_a6be84665bacd3a0fa365f36991686080}{set\+Alternative}} (\mbox{\hyperlink{classRequestQueue}{Request\+Queue}} \&alternative)
+\begin{DoxyCompactList}\small\item\em Define an alternative request queue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLoadBalancer_a3c65fdc40ac669ded86b56c653d0d6f0}{Load\+Balancer}} (int \mbox{\hyperlink{classLoadBalancer_ac7805c3e364e8cfc47f85ff2855308c3}{n}})
+\begin{DoxyCompactList}\small\item\em Construct a new Load Balancer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLoadBalancer_a5f205cb9d5c93bf01b11ca495dfce533}{Load\+Balancer}} (int \mbox{\hyperlink{classLoadBalancer_ac7805c3e364e8cfc47f85ff2855308c3}{n}}, int \mbox{\hyperlink{classLoadBalancer_a6a97d0f82ab5b5f5367d6d8b87f094ba}{load\+Balancer\+Index}})
+\begin{DoxyCompactList}\small\item\em Construct a new Load Balancer. \end{DoxyCompactList}\item 
+\Hypertarget{classLoadBalancer_a528909054cb20964cba1fb35ceb9003f}\label{classLoadBalancer_a528909054cb20964cba1fb35ceb9003f} 
+void {\bfseries run} ()
+\begin{DoxyCompactList}\small\item\em The command to start the Load Balancer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLoadBalancer_ae1d5ff58a9f47cffe345418e85c8b502}\label{classLoadBalancer_ae1d5ff58a9f47cffe345418e85c8b502} 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classWebServer}{Web\+Server}} $>$ $>$ {\bfseries servers}
+\begin{DoxyCompactList}\small\item\em Vector of servers for the loadbalancer to manage. \end{DoxyCompactList}\item 
+\Hypertarget{classLoadBalancer_ac9bc3c986505c6fd38eac92de4b7a08d}\label{classLoadBalancer_ac9bc3c986505c6fd38eac92de4b7a08d} 
+\mbox{\hyperlink{classRequestQueue}{Request\+Queue}} {\bfseries live\+Queue}
+\begin{DoxyCompactList}\small\item\em Queue of requests for the loadbalancer to manage. \end{DoxyCompactList}\item 
+\Hypertarget{classLoadBalancer_ac7805c3e364e8cfc47f85ff2855308c3}\label{classLoadBalancer_ac7805c3e364e8cfc47f85ff2855308c3} 
+int {\bfseries n}
+\begin{DoxyCompactList}\small\item\em Number of starting servers. \end{DoxyCompactList}\item 
+\Hypertarget{classLoadBalancer_a6a97d0f82ab5b5f5367d6d8b87f094ba}\label{classLoadBalancer_a6a97d0f82ab5b5f5367d6d8b87f094ba} 
+int {\bfseries load\+Balancer\+Index}
+\begin{DoxyCompactList}\small\item\em Index or id for the load balancer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classLoadBalancer}{Load\+Balancer} class managing the Queue and Servers. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classLoadBalancer_a3c65fdc40ac669ded86b56c653d0d6f0}\label{classLoadBalancer_a3c65fdc40ac669ded86b56c653d0d6f0} 
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{LoadBalancer()}{LoadBalancer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Load\+Balancer\+::\+Load\+Balancer (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Construct a new Load Balancer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of servers \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLoadBalancer_a5f205cb9d5c93bf01b11ca495dfce533}\label{classLoadBalancer_a5f205cb9d5c93bf01b11ca495dfce533} 
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{LoadBalancer()}{LoadBalancer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Load\+Balancer\+::\+Load\+Balancer (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{load\+Balancer\+Index }\end{DoxyParamCaption})}
+
+
+
+Construct a new Load Balancer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of servers \\
+\hline
+{\em load\+Balancer\+Index} & index/id for the Load Balancer \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLoadBalancer_a6be84665bacd3a0fa365f36991686080}\label{classLoadBalancer_a6be84665bacd3a0fa365f36991686080} 
+\index{LoadBalancer@{LoadBalancer}!setAlternative@{setAlternative}}
+\index{setAlternative@{setAlternative}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{setAlternative()}{setAlternative()}}
+{\footnotesize\ttfamily void Load\+Balancer\+::set\+Alternative (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRequestQueue}{Request\+Queue}} \&}]{alternative }\end{DoxyParamCaption})}
+
+
+
+Define an alternative request queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alternative} & Alternative request queue \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Balancer.\+h\item 
+Load\+Balancer.\+cpp\end{DoxyCompactItemize}

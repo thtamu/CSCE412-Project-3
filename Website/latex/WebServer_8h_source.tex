@@ -1,0 +1,31 @@
+\doxysection{Web\+Server.\+h}
+\hypertarget{WebServer_8h_source}{}\label{WebServer_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WEBSERVER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WEBSERVER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Ip.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Request.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWebServer}{WebServer}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ std::atomic<bool>\ busy;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ std::mutex\ serverMutex;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::string\ serverName;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classWebServer}{WebServer}}(std::string\ serverName);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classWebServer}{WebServer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWebServer}{WebServer}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classWebServer}{WebServer}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWebServer}{WebServer}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classWebServer_ae70a2c20bf643c942408c3aeccf003c7}{isFree}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWebServer_a1b8029d6aec02a280c079f0170570a4b}{assign}}(\mbox{\hyperlink{classRequest}{Request}}\ newRequest);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classWebServer_a033ad2a2671ba8cad01b45a8673eb53b}{getName}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classWebServer_a7aac297c613cc00c6143d587d268c67a}{rejected}}\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classWebServer_ab22c0b0382c4af01333159cc1036e97c}{accepted}}\ =\ 0;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classWebServer_a9d845e16a5cc1cbed62277300403cbdc}{completed}}\ =\ 0;}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

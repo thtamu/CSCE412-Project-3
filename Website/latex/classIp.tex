@@ -1,0 +1,107 @@
+\doxysection{Ip Class Reference}
+\hypertarget{classIp}{}\label{classIp}\index{Ip@{Ip}}
+
+
+Class to store information about an IP.  
+
+
+
+
+{\ttfamily \#include $<$Ip.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIp_a94389bb812abe5358dd95fc67c79d858}{Ip}} (int \mbox{\hyperlink{classIp_a37e3bca101e60229b78327057f8f860a}{octet1}}, int \mbox{\hyperlink{classIp_a47b2a51ba8b0538ae70cdde161f06b08}{octet2}}, int \mbox{\hyperlink{classIp_aae5ed8c265831ffe8122b95521cd5bd7}{octet3}}, int \mbox{\hyperlink{classIp_a80c26266b3a7abcb24aaa662a7100c7c}{octet4}})
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classIp}{Ip} with 4 octet values. \end{DoxyCompactList}\item 
+\Hypertarget{classIp_abc1b04c5638f7ec50b5d4667c6e1a099}\label{classIp_abc1b04c5638f7ec50b5d4667c6e1a099} 
+{\bfseries Ip} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classIp}{Ip} with 4 random octet values. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIp_a8b31bf74dec7214e7e1aa3aaf8b10ee9}{operator==}} (const \mbox{\hyperlink{classIp}{Ip}} \&other) const
+\begin{DoxyCompactList}\small\item\em Check if two IPs are the same. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classIp_aa2097ae770771c7ab0cfba771503c049}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Return formatted IP. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classIp_a37e3bca101e60229b78327057f8f860a}\label{classIp_a37e3bca101e60229b78327057f8f860a} 
+int {\bfseries octet1}
+\begin{DoxyCompactList}\small\item\em Octet 1 value(0-\/255) \end{DoxyCompactList}\item 
+\Hypertarget{classIp_a47b2a51ba8b0538ae70cdde161f06b08}\label{classIp_a47b2a51ba8b0538ae70cdde161f06b08} 
+int {\bfseries octet2}
+\begin{DoxyCompactList}\small\item\em Octet 2 value(0-\/255) \end{DoxyCompactList}\item 
+\Hypertarget{classIp_aae5ed8c265831ffe8122b95521cd5bd7}\label{classIp_aae5ed8c265831ffe8122b95521cd5bd7} 
+int {\bfseries octet3}
+\begin{DoxyCompactList}\small\item\em Octet 3 value(0-\/255) \end{DoxyCompactList}\item 
+\Hypertarget{classIp_a80c26266b3a7abcb24aaa662a7100c7c}\label{classIp_a80c26266b3a7abcb24aaa662a7100c7c} 
+int {\bfseries octet4}
+\begin{DoxyCompactList}\small\item\em Octet 4 value(0-\/255) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to store information about an IP. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classIp_a94389bb812abe5358dd95fc67c79d858}\label{classIp_a94389bb812abe5358dd95fc67c79d858} 
+\index{Ip@{Ip}!Ip@{Ip}}
+\index{Ip@{Ip}!Ip@{Ip}}
+\doxysubsubsection{\texorpdfstring{Ip()}{Ip()}}
+{\footnotesize\ttfamily Ip\+::\+Ip (\begin{DoxyParamCaption}\item[{int}]{octet1,  }\item[{int}]{octet2,  }\item[{int}]{octet3,  }\item[{int}]{octet4 }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classIp}{Ip} with 4 octet values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em octet1} & \\
+\hline
+{\em octet2} & \\
+\hline
+{\em octet3} & \\
+\hline
+{\em octet4} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classIp_a8b31bf74dec7214e7e1aa3aaf8b10ee9}\label{classIp_a8b31bf74dec7214e7e1aa3aaf8b10ee9} 
+\index{Ip@{Ip}!operator==@{operator==}}
+\index{operator==@{operator==}!Ip@{Ip}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Ip\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIp}{Ip}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Check if two IPs are the same. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & IP to compare the current IP to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the same 
+
+false if not the same 
+\end{DoxyReturn}
+\Hypertarget{classIp_aa2097ae770771c7ab0cfba771503c049}\label{classIp_aa2097ae770771c7ab0cfba771503c049} 
+\index{Ip@{Ip}!toString@{toString}}
+\index{toString@{toString}!Ip@{Ip}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Ip\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return formatted IP. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Ip.\+h\item 
+Ip.\+cpp\end{DoxyCompactItemize}

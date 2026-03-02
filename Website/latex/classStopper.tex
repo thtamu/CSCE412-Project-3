@@ -1,0 +1,55 @@
+\doxysection{Stopper Class Reference}
+\hypertarget{classStopper}{}\label{classStopper}\index{Stopper@{Stopper}}
+
+
+Clock manager for the \doxylink{classLoadBalancer}{Load\+Balancer}.  
+
+
+
+
+{\ttfamily \#include $<$Stopper.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classStopper_ad954a645967650e831afb0c1668c61b6}\label{classStopper_ad954a645967650e831afb0c1668c61b6} 
+static void {\bfseries start} ()
+\begin{DoxyCompactList}\small\item\em Starts the clock. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classStopper_aa5c6bef66f5371b61fa674fe28bf7fb0}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the clock has reached its expiration time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classStopper_ade59758aaa07a58743c8f39e2cbb64c0}\label{classStopper_ade59758aaa07a58743c8f39e2cbb64c0} 
+static std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point {\bfseries start\+Point}
+\begin{DoxyCompactList}\small\item\em Starting timestamp. \end{DoxyCompactList}\item 
+\Hypertarget{classStopper_a4da2b403e7aea3bef8cdebcecf0c3b4b}\label{classStopper_a4da2b403e7aea3bef8cdebcecf0c3b4b} 
+static std\+::atomic$<$ bool $>$ {\bfseries started} \{false\}
+\begin{DoxyCompactList}\small\item\em Boolean indicating whether the clock has started yet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clock manager for the \doxylink{classLoadBalancer}{Load\+Balancer}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classStopper_aa5c6bef66f5371b61fa674fe28bf7fb0}\label{classStopper_aa5c6bef66f5371b61fa674fe28bf7fb0} 
+\index{Stopper@{Stopper}!stop@{stop}}
+\index{stop@{stop}!Stopper@{Stopper}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily static bool Stopper\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Checks if the clock has reached its expiration time. 
+
+\begin{DoxyReturn}{Returns}
+true if it did reach expiration time 
+
+false if it did not reach expiration time 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Stopper.\+h\item 
+Stopper.\+cpp\end{DoxyCompactItemize}

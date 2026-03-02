@@ -1,0 +1,115 @@
+\doxysection{Request\+Queue Class Reference}
+\hypertarget{classRequestQueue}{}\label{classRequestQueue}\index{RequestQueue@{RequestQueue}}
+
+
+Queue of requests for a given \doxylink{classLoadBalancer}{Load\+Balancer}.  
+
+
+
+
+{\ttfamily \#include $<$Request\+Queue.\+h$>$}
+
+
+
+Collaboration diagram for Request\+Queue\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{classRequestQueue__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRequestQueue_a8447bc4b7dbde35ac15a32aaa5c1b2c0}{Request\+Queue}} (int \mbox{\hyperlink{classRequestQueue_ac411817c314fd6801cad2777bda99554}{index}})
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classRequest}{Request} Queue. \end{DoxyCompactList}\item 
+\Hypertarget{classRequestQueue_a0309bb61d10e196dab4a427f1700908a}\label{classRequestQueue_a0309bb61d10e196dab4a427f1700908a} 
+void {\bfseries generate\+Request} ()
+\begin{DoxyCompactList}\small\item\em Looping algorithm that pushes new request to the queue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRequest}{Request}} \mbox{\hyperlink{classRequestQueue_a35e8310eb4019cdf099420446039667f}{get\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Get the new request from the queue. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRequestQueue_ac2a2a546ac5579e45ca11f433a8a804c}{size}} ()
+\begin{DoxyCompactList}\small\item\em Get the current size of the queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRequestQueue_addec7af30d521ffe810cc804551e0385}{push}} (\mbox{\hyperlink{classRequest}{Request}} request)
+\begin{DoxyCompactList}\small\item\em Push a request to the request queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classRequestQueue_a4174e4244cbf435d3ba6a2458276da40}\label{classRequestQueue_a4174e4244cbf435d3ba6a2458276da40} 
+\mbox{\hyperlink{classRequestQueue}{Request\+Queue}} \texorpdfstring{$\ast$}{*} {\bfseries alternative} =nullptr
+\begin{DoxyCompactList}\small\item\em Alternative \doxylink{classRequest}{Request} Queue to push requests to. \end{DoxyCompactList}\item 
+\Hypertarget{classRequestQueue_ac411817c314fd6801cad2777bda99554}\label{classRequestQueue_ac411817c314fd6801cad2777bda99554} 
+int {\bfseries index}
+\begin{DoxyCompactList}\small\item\em Index or ID for the request queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Queue of requests for a given \doxylink{classLoadBalancer}{Load\+Balancer}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRequestQueue_a8447bc4b7dbde35ac15a32aaa5c1b2c0}\label{classRequestQueue_a8447bc4b7dbde35ac15a32aaa5c1b2c0} 
+\index{RequestQueue@{RequestQueue}!RequestQueue@{RequestQueue}}
+\index{RequestQueue@{RequestQueue}!RequestQueue@{RequestQueue}}
+\doxysubsubsection{\texorpdfstring{RequestQueue()}{RequestQueue()}}
+{\footnotesize\ttfamily Request\+Queue\+::\+Request\+Queue (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classRequest}{Request} Queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRequestQueue_a35e8310eb4019cdf099420446039667f}\label{classRequestQueue_a35e8310eb4019cdf099420446039667f} 
+\index{RequestQueue@{RequestQueue}!getRequest@{getRequest}}
+\index{getRequest@{getRequest}!RequestQueue@{RequestQueue}}
+\doxysubsubsection{\texorpdfstring{getRequest()}{getRequest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRequest}{Request}} Request\+Queue\+::get\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the new request from the queue. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classRequest}{Request} 
+\end{DoxyReturn}
+\Hypertarget{classRequestQueue_addec7af30d521ffe810cc804551e0385}\label{classRequestQueue_addec7af30d521ffe810cc804551e0385} 
+\index{RequestQueue@{RequestQueue}!push@{push}}
+\index{push@{push}!RequestQueue@{RequestQueue}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily void Request\+Queue\+::push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRequest}{Request}}}]{request }\end{DoxyParamCaption})}
+
+
+
+Push a request to the request queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & New request \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRequestQueue_ac2a2a546ac5579e45ca11f433a8a804c}\label{classRequestQueue_ac2a2a546ac5579e45ca11f433a8a804c} 
+\index{RequestQueue@{RequestQueue}!size@{size}}
+\index{size@{size}!RequestQueue@{RequestQueue}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int Request\+Queue\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the current size of the queue. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Request\+Queue.\+h\item 
+Request\+Queue.\+cpp\end{DoxyCompactItemize}
