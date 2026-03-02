@@ -19,5 +19,8 @@ class WebServer {
         bool isFree();
         void assign(Request newRequest);
         std::string getName();
+        int rejected = 0;
+        int accepted = 0;
+        int completed = 0;
 };
 #endif 

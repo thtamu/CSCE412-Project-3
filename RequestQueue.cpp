@@ -7,20 +7,42 @@
 #include "constants.h"
 #include "Stopper.h"
 #include "helpers.h"
+#include "unistd.h"
+#include <cstdio>
 
-RequestQueue::RequestQueue() {
-    for(int i = 0; i < 250; i++){
-        Request request;
-        requestQueue.push(request);
+RequestQueue::RequestQueue(int index) {
+    this->index = index;
+    if(constants::preloadRequests){
+        for(int i = 0; i < 250; i++){
+            Request request;
+            requestQueue.push(request);
+        }
     }
 }
+
+void RequestQueue::push(Request request){
+    std::unique_lock<std::mutex> lock(queueMutex);
+    requestQueue.push(request);
+    cv.notify_all();
+    lock.unlock();
+}
+
 void RequestQueue::generateRequest(){
     while(!Stopper::stop()){
-        std::unique_lock<std::mutex> lock(queueMutex);
         Request request;
-        requestQueue.push(request);
-        cv.notify_all();
-        lock.unlock();
+        if(alternative==nullptr){
+            push(request);
+        }
+        else{
+            bool myJob = (request.job =='s' && index%2==0) || (request.job =='p' && index%2==1);
+            if(!myJob){
+                alternative->push(request);
+            }
+            else{
+                push(request);
+            }
+
+        }
         std::this_thread::sleep_for(std::chrono::milliseconds(generateRandom(constants::requestIntervalLow, constants::requestIntervalHigh)));
     }
 }

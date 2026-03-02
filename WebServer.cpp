@@ -27,6 +27,7 @@ void WebServer::assign(Request newRequest){
                 constants::octet4_u, constants::octet4_l);
             bool validIp = firewall.valid(newRequest);
             if(validIp){
+                accepted += 1;
                 long time = newRequest.time;
                 double timeInSeconds = time*constants::conversion;
                 std::this_thread::sleep_for(std::chrono::duration<double>(timeInSeconds));
@@ -37,8 +38,10 @@ void WebServer::assign(Request newRequest){
                 else{
                     std::cout <<getCurrentTimestamp()<<": "<<this->serverName << " completed " << job << " task after " << time <<" cycles("<<timeInSeconds<<"s) of execution" <<std::endl;
                 }
+                completed+=1;
             }
             else{
+                rejected +=1;
                 if(isatty(fileno(stdout))){
                     std::cout<<"\033[34m" << getCurrentTimestamp()<<": "<<this->serverName << " rejected the request since it was blocked by the firewall" <<std::endl;
                 }

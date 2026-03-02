@@ -15,7 +15,7 @@ class LoadBalancer {
         RequestQueue liveQueue;
         int n;
         int loadBalancerIndex;
-
+        void setAlternative(RequestQueue &alternative);
         LoadBalancer(int n);
 
         LoadBalancer(int n, int loadBalancerIndex);

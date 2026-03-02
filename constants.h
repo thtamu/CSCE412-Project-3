@@ -5,6 +5,7 @@
 namespace constants {
     //Edit these
     inline constexpr double ghz = 1e-9;
+    inline constexpr bool preloadRequests = true;
     inline constexpr long requestIntervalLowCycles = 2;
     inline constexpr long requestIntervalHighCycles = 4;
     inline constexpr long timeLowCycles = 3;

@@ -10,7 +10,7 @@
 #include "unistd.h"
 #include <cstdio>
 using namespace std::chrono;
-LoadBalancer::LoadBalancer(int n){
+LoadBalancer::LoadBalancer(int n): liveQueue(1){
     this->n = n;
     this->loadBalancerIndex = 1;
     for(int i = 0; i < n; i++){
@@ -20,7 +20,7 @@ LoadBalancer::LoadBalancer(int n){
     requestThread.detach();
 }
 
-LoadBalancer::LoadBalancer(int n, int loadBalancerIndex){
+LoadBalancer::LoadBalancer(int n, int loadBalancerIndex): liveQueue(loadBalancerIndex){
     this->n = n;
     this->loadBalancerIndex = loadBalancerIndex;
     this->loadBalancerIndex = 1;
@@ -31,10 +31,27 @@ LoadBalancer::LoadBalancer(int n, int loadBalancerIndex){
     requestThread.detach();
 }
 
-
+void LoadBalancer::setAlternative(RequestQueue &alternative){
+    this->liveQueue.alternative = &alternative;
+}
 
 void LoadBalancer::run(){
+    if(isatty(fileno(stdout))){
+        std::cout << "\033[0m" << getCurrentTimestamp()<<": Starting LoadBalancer "<< loadBalancerIndex<< std::endl;
+        std::cout << "\033[0m" << "Starting Statistics for Load Balancer "<<loadBalancerIndex<<": "<<std::endl;
+        std::cout << "\033[0m" << "Load Balancer "<<loadBalancerIndex<<" start server count: " << servers.size() << std::endl;
+        std::cout << "\033[0m" << "Load Balancer "<<loadBalancerIndex<< " start queue size: " << liveQueue.size() << std::endl;
+        std::cout << "\033[m" << "Time range for taks "<< constants::timeLowCycles << " and " << constants::timeHighCycles << " cycles" << std::endl;
+        std::cout << "\033[m" << "Time range for taks "<< constants::timeLow << " and " << constants::timeHigh << " seconds" << std::endl;
+    }
+    else{
+        std::cout << getCurrentTimestamp()<<": Starting LoadBalancer "<< loadBalancerIndex<< std::endl;
+        std::cout << "Starting Statistics for Load Balancer "<<loadBalancerIndex<<": "<<std::endl;
+        std::cout << "Load Balancer "<<loadBalancerIndex<<" start server count: " << servers.size() << std::endl;
+        std::cout << "Load Balancer "<<loadBalancerIndex<< " start queue size: " << liveQueue.size() << std::endl;
+    }
     int serversAdded = 0;
+    int serversRemoved = 0;
     //start Stopper
     Stopper::start();
     auto checkTime = steady_clock::now();
@@ -43,6 +60,7 @@ void LoadBalancer::run(){
         bool adjustServers = currentTime > checkTime;
         // Goal: Keep queue size between 50 and 80 requests times the number of servers you have. 
         if(liveQueue.size()<servers.size()*50 && servers.size()>1 && adjustServers){
+            serversRemoved +=1;
             if(isatty(fileno(stdout))){
                 std::cout<<"\033[31mLoad Balancer "<<loadBalancerIndex <<" at " << getCurrentTimestamp()<<": Remove server " <<servers.back()->getName() <<". Current server count: "<<servers.size()-1<< std::endl;
             }
@@ -84,17 +102,37 @@ void LoadBalancer::run(){
         }
         
     }
+    int accepted = 0;
+    int rejected = 0;
+    int completed = 0;
+    for(int i = 0; i < servers.size(); i++){
+        accepted += servers[i]->accepted;
+        rejected += servers[i]->rejected;
+        completed += servers[i]->completed;
+    }
     if(isatty(fileno(stdout))){
         std::cout << "\033[0m" << getCurrentTimestamp()<<": Stopping LoadBalancer "<< loadBalancerIndex<< std::endl;
         std::cout << "\033[0m" << "Final Statistics for Load Balancer "<<loadBalancerIndex<<": "<<std::endl;
         std::cout << "\033[0m" << "Load Balancer "<<loadBalancerIndex<<" final server count: " << servers.size() << std::endl;
         std::cout << "\033[0m" << "Load Balancer "<<loadBalancerIndex<< " final queue size: " << liveQueue.size() << std::endl;
+        std::cout << "\033[0m" << "Load Balancer "<<loadBalancerIndex<< " added servers: " << serversAdded << std::endl;
+        std::cout << "\033[0m" << "Load Balancer "<<loadBalancerIndex<< " removed servers: " << serversRemoved << std::endl;
+        std::cout << "\033[0m" << "Load Balancer "<<loadBalancerIndex<< " accepted requests: " << accepted << std::endl;
+        std::cout << "\033[0m" << "Load Balancer "<<loadBalancerIndex<< " rejected requests: " << rejected << std::endl;
+        std::cout << "\033[0m" << "Load Balancer "<<loadBalancerIndex<< " active tasks/servers: " << (accepted - completed) << std::endl;
+        std::cout << "\033[0m" << "Load Balancer "<<loadBalancerIndex<< " completed tasks: " << completed << std::endl;
     }
     else{
         std::cout << getCurrentTimestamp()<<": Stopping LoadBalancer "<< loadBalancerIndex<< std::endl;
         std::cout << "Final Statistics for Load Balancer "<<loadBalancerIndex<<": "<<std::endl;
         std::cout << "Load Balancer "<<loadBalancerIndex<<" final server count: " << servers.size() << std::endl;
         std::cout << "Load Balancer "<<loadBalancerIndex<< " final queue size: " << liveQueue.size() << std::endl;
+        std::cout << "Load Balancer "<<loadBalancerIndex<< " added servers: " << serversAdded << std::endl;
+        std::cout << "Load Balancer "<<loadBalancerIndex<< " removed servers: " << serversRemoved << std::endl;
+        std::cout << "Load Balancer "<<loadBalancerIndex<< " accepted requests: " << accepted << std::endl;
+        std::cout << "Load Balancer "<<loadBalancerIndex<< " rejected requests: " << rejected << std::endl;
+        std::cout << "Load Balancer "<<loadBalancerIndex<< " active tasks/servers: " << (accepted - completed) << std::endl;
+        std::cout << "Load Balancer "<<loadBalancerIndex<< " completed tasks: " << completed << std::endl;
     }
 }
 
