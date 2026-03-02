@@ -6,7 +6,13 @@
 #include <ctime>
 #include <string>
 
-//Chat GPT: Write a C++ function to generate a number between 0 and 255 inclusive
+/**
+ * @brief Generate a random number 
+ * 
+ * @param min minimum(inclusive)
+ * @param max maximum(inclusive)
+ * @return long 
+ */
 long generateRandom(long min, long max) {
     static std::random_device rd;
     static std::mt19937 gen(rd());
@@ -14,6 +20,11 @@ long generateRandom(long min, long max) {
     return dist(gen);
 }
 
+/**
+ * @brief Generate a random octet(number between 0 and 255)
+ * 
+ * @return int 
+ */
 int generateOctet() {
     static std::random_device rd;
     static std::mt19937 gen(rd());
@@ -22,7 +33,11 @@ int generateOctet() {
 }
 
 
-//Chat GPT: Write a C++ function to get the current time (time zones don't matter)
+/**
+ * @brief Get the Current Timestamp as a formatted string
+ * 
+ * @return std::string 
+ */
 std::string getCurrentTimestamp() {
     using namespace std::chrono;
     auto now = system_clock::now();

@@ -5,6 +5,10 @@
 #include "Request.h"
 #include <queue>
 #include <atomic>
+/**
+ * @brief Queue of requests for a given LoadBalancer
+ * 
+ */
 class RequestQueue {
     private:
         std::queue<Request> requestQueue;
@@ -17,7 +21,15 @@ class RequestQueue {
         Request getRequest();
         int size();
         void push(Request request);
+        /**
+         * @brief Alternative Request Queue to push requests to
+         * 
+         */
         RequestQueue* alternative=nullptr;
+        /**
+         * @brief Index or ID for the request queue
+         * 
+         */
         int index;
 };
 #endif 

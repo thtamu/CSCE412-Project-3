@@ -9,13 +9,29 @@
 #include "unistd.h"
 #include <cstdio>
 #include "Firewall.h"
+/**
+ * @brief Construct a new Web Server
+ * 
+ * @param serverName 
+ */
 WebServer::WebServer(std::string serverName) : serverName(serverName), busy(false) {}
 
+/**
+ * @brief Check if a server is free
+ * 
+ * @return true if it is free
+ * @return false if it is busy
+ */
 bool WebServer::isFree(){
     std::lock_guard<std::mutex> lock(serverMutex);
     return !busy;
 }
 
+/**
+ * @brief Assigns a new request to the server
+ * 
+ * @param newRequest Request to work on
+ */
 void WebServer::assign(Request newRequest){
     std::lock_guard<std::mutex> lock(serverMutex);
     if(!busy) {
@@ -31,7 +47,7 @@ void WebServer::assign(Request newRequest){
                 long time = newRequest.time;
                 double timeInSeconds = time*constants::conversion;
                 std::this_thread::sleep_for(std::chrono::duration<double>(timeInSeconds));
-                std::string job = newRequest.job=='s' ? "streaming" : "processing";
+                std::string job = newRequest.job=='S' ? "streaming" : "processing";
                 if(isatty(fileno(stdout))){
                     std::cout<<"\033[34m" <<getCurrentTimestamp()<<": "<<this->serverName << " completed " << job << " task after " << time <<" cycles("<<timeInSeconds<<"s) of execution" <<std::endl;
                 }
@@ -54,6 +70,11 @@ void WebServer::assign(Request newRequest){
     }
 }
 
+/**
+ * @brief Get the name of the server
+ * 
+ * @return std::string 
+ */
 std::string WebServer::getName(){
     return serverName;
 }

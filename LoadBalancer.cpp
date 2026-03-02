@@ -10,6 +10,11 @@
 #include "unistd.h"
 #include <cstdio>
 using namespace std::chrono;
+/**
+ * @brief Construct a new Load Balancer
+ * 
+ * @param n number of servers
+ */
 LoadBalancer::LoadBalancer(int n): liveQueue(1){
     this->n = n;
     this->loadBalancerIndex = 1;
@@ -20,6 +25,12 @@ LoadBalancer::LoadBalancer(int n): liveQueue(1){
     requestThread.detach();
 }
 
+/**
+ * @brief Construct a new Load Balancer
+ * 
+ * @param n number of servers
+ * @param loadBalancerIndex index/id for the Load Balancer
+ */
 LoadBalancer::LoadBalancer(int n, int loadBalancerIndex): liveQueue(loadBalancerIndex){
     this->n = n;
     this->loadBalancerIndex = loadBalancerIndex;
@@ -31,24 +42,35 @@ LoadBalancer::LoadBalancer(int n, int loadBalancerIndex): liveQueue(loadBalancer
     requestThread.detach();
 }
 
+/**
+ * @brief Define an alternative request queue
+ * 
+ * @param alternative Alternative request queue
+ */
 void LoadBalancer::setAlternative(RequestQueue &alternative){
     this->liveQueue.alternative = &alternative;
 }
 
+/**
+ * @brief The command to start the Load Balancer
+ * 
+ */
 void LoadBalancer::run(){
     if(isatty(fileno(stdout))){
         std::cout << "\033[0m" << getCurrentTimestamp()<<": Starting LoadBalancer "<< loadBalancerIndex<< std::endl;
         std::cout << "\033[0m" << "Starting Statistics for Load Balancer "<<loadBalancerIndex<<": "<<std::endl;
         std::cout << "\033[0m" << "Load Balancer "<<loadBalancerIndex<<" start server count: " << servers.size() << std::endl;
         std::cout << "\033[0m" << "Load Balancer "<<loadBalancerIndex<< " start queue size: " << liveQueue.size() << std::endl;
-        std::cout << "\033[m" << "Time range for taks "<< constants::timeLowCycles << " and " << constants::timeHighCycles << " cycles" << std::endl;
-        std::cout << "\033[m" << "Time range for taks "<< constants::timeLow << " and " << constants::timeHigh << " seconds" << std::endl;
+        std::cout << "\033[m" << "Time range for task "<< constants::timeLowCycles << " and " << constants::timeHighCycles << " cycles" << std::endl;
+        std::cout << "\033[m" << "Time range for task "<< constants::timeLow << " and " << constants::timeHigh << " seconds" << std::endl;
     }
     else{
         std::cout << getCurrentTimestamp()<<": Starting LoadBalancer "<< loadBalancerIndex<< std::endl;
         std::cout << "Starting Statistics for Load Balancer "<<loadBalancerIndex<<": "<<std::endl;
         std::cout << "Load Balancer "<<loadBalancerIndex<<" start server count: " << servers.size() << std::endl;
         std::cout << "Load Balancer "<<loadBalancerIndex<< " start queue size: " << liveQueue.size() << std::endl;
+        std::cout << "Time range for task "<< constants::timeLowCycles << " and " << constants::timeHighCycles << " cycles" << std::endl;
+        std::cout << "Time range for task "<< constants::timeLow << " and " << constants::timeHigh << " seconds" << std::endl;
     }
     int serversAdded = 0;
     int serversRemoved = 0;

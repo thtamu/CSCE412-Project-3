@@ -10,6 +10,11 @@
 #include "unistd.h"
 #include <cstdio>
 
+/**
+ * @brief Construct a new Request Queue
+ * 
+ * @param index 
+ */
 RequestQueue::RequestQueue(int index) {
     this->index = index;
     if(constants::preloadRequests){
@@ -20,6 +25,11 @@ RequestQueue::RequestQueue(int index) {
     }
 }
 
+/**
+ * @brief Push a request to the request queue
+ * 
+ * @param request New request
+ */
 void RequestQueue::push(Request request){
     std::unique_lock<std::mutex> lock(queueMutex);
     requestQueue.push(request);
@@ -27,6 +37,10 @@ void RequestQueue::push(Request request){
     lock.unlock();
 }
 
+/**
+ * @brief Looping algorithm that pushes new request to the queue
+ * 
+ */
 void RequestQueue::generateRequest(){
     while(!Stopper::stop()){
         Request request;
@@ -34,7 +48,7 @@ void RequestQueue::generateRequest(){
             push(request);
         }
         else{
-            bool myJob = (request.job =='s' && index%2==0) || (request.job =='p' && index%2==1);
+            bool myJob = (request.job =='S' && index%2==0) || (request.job =='P' && index%2==1);
             if(!myJob){
                 alternative->push(request);
             }
@@ -47,6 +61,11 @@ void RequestQueue::generateRequest(){
     }
 }
 
+/**
+ * @brief Get the new request from the queue
+ * 
+ * @return Request 
+ */
 Request RequestQueue::getRequest(){
     std::unique_lock<std::mutex> lock(queueMutex);
     cv.wait(lock, [this]{ return requestQueue.size()>0; });
@@ -55,6 +74,11 @@ Request RequestQueue::getRequest(){
     return output;
 }
 
+/**
+ * @brief Get the current size of the queue
+ * 
+ * @return int 
+ */
 int RequestQueue::size(){
     std::lock_guard<std::mutex> lock(queueMutex);
     return requestQueue.size();
